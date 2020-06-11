@@ -1,11 +1,7 @@
 @extends('layouts.templateAd')
-
 @section('title','Create')
-
 @push('css')
-
 @endpush
-
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -16,7 +12,8 @@
                             <h4 class="title">Menu</h4>
                         </div>
                         <div class="card-content">
-                            <form method="POST" action="{{ route('employe.clients.store') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('employe.clients.store') }}"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
@@ -73,7 +70,7 @@
                                             <input type="text" class="form-control" name="type">
                                         </div>
                                     </div>
-                                </div>            
+                                </div>
                                 <a href="{{ route('employe.clients.index') }}" class="btn btn-danger">Retour</a>
                                 <button type="submit" class="btn btn-primary">Enregistrer</button>
                             </form>
@@ -84,7 +81,5 @@
         </div>
     </div>
 @endsection
-
 @push('scripts')
-
 @endpush

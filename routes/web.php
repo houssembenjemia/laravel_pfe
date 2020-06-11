@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-  
-});
+Route::view('/', 'welcome')->name('index');;
 Route::post('/contact','ContactController@sendMessage')->name('contact.send');
 Auth::routes();
 Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -22,16 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware(['admin'])->name('admin.')->prefix('admin')->group(function () {
-    Route::get('home', function () {
-       return view('admin.home');
-        // Matches The "/admin/users" URL
-    })->name('home');
+    Route::view('home', view('admin.home'))->name('home');
     Route::resources(['employes'=>'Admin\EmployeController',
                 'clients'=>'Admin\ClientController',
                 'contrats'=> 'Admin\ContratController',
                 'contacts'=> 'Admin\ContactController']);
-    Route::get('/serach','ClientController@search'); 
-    
+    Route::get('/serach','ClientController@search');
 });
 
 Route::middleware(['client'])->name('client.')->prefix('client')->group(function () {
@@ -58,11 +51,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth','namespace'=>'Admin'], func
     Route::resource('contrat','ContratController');
     //Route::resource('employe','EmployeController');
 });
+
 Route::group(['prefix'=>'employe','middleware'=>'auth','namespace'=>'Employe'], function (){
     Route::get('home', 'DashboardController@index')->name('employe.home');   
 });
-
-
 
 //Route::get('/deconnexion', 'AdminController@deconnexion');
 //Route::get('/logout', 'EmployeController@logout');
@@ -70,8 +62,3 @@ Route::get('/home', 'HomeController@index');
 //Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
 //Route::get('/employe', 'EmployeController@index')->name('employe')->middleware('employe');
 //Route::get('/client', 'ClientController@index')->name('client')->middleware('client');
-
-
-
-
-    

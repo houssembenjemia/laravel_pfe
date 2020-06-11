@@ -1,11 +1,7 @@
-@extends('layouts.templateAd')
-
+@extends('admin.layouts.app')
 @section('title','Employe')
-
 @push('css')
-
 @endpush
-
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -16,7 +12,8 @@
                             <h4 class="title">Ajouter Employe</h4>
                         </div>
                         <div class="card-content">
-                            <form method="POST" action="{{ route('admin.employes.store') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('admin.employes.store') }}"
+                                  enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
@@ -44,7 +41,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                    <libellé>Sexe</libellé>
+                                        <libellé>Sexe</libellé>
                                         <select name="sexe">
                                             <option value=""></option>
                                             <option value="Homme">Homme</option>
@@ -76,7 +73,6 @@
                                         </div>
                                     </div>
                                 </div>
-                               
                                 <a href="{{ route('admin.employes.index') }}" class="btn btn-danger">Retour</a>
                                 <button type="submit" class="btn btn-primary">Enregistrer</button>
                             </form>
@@ -87,7 +83,5 @@
         </div>
     </div>
 @endsection
-
 @push('scripts')
-
 @endpush

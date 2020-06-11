@@ -1,11 +1,7 @@
 @extends('layouts.templateAd')
-
 @section('title','Edit')
-
 @push('css')
-
 @endpush
-
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -23,7 +19,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Nom</label>
-                                            <input type="text" class="form-control" name="nom" value="{{ $client->nom }}">
+                                            <input type="text" class="form-control" name="nom"
+                                                   value="{{ $client->nom }}">
                                         </div>
                                     </div>
                                 </div>
@@ -31,7 +28,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Prenom</label>
-                                            <input type="text" class="form-control" name="prenom" value="{{ $client->prenom }}">
+                                            <input type="text" class="form-control" name="prenom"
+                                                   value="{{ $client->prenom }}">
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +37,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Identite</label>
-                                            <input type="text" class="form-control" name="identite" value="{{ $client->identite }}">
+                                            <input type="text" class="form-control" name="identite"
+                                                   value="{{ $client->identite }}">
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +46,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Cin</label>
-                                            <input type="text" class="form-control" name="cin" value="{{ $client->cin }}">
+                                            <input type="text" class="form-control" name="cin"
+                                                   value="{{ $client->cin }}">
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +55,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Telephone</label>
-                                            <input type="text" class="form-control" name="tel" value="{{ $client->tel }}">
+                                            <input type="text" class="form-control" name="tel"
+                                                   value="{{ $client->tel }}">
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +64,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Adresse</label>
-                                            <input type="text" class="form-control" name="adresse" value="{{ $client->adresse }}">
+                                            <input type="text" class="form-control" name="adresse"
+                                                   value="{{ $client->adresse }}">
                                         </div>
                                     </div>
                                 </div>
@@ -71,11 +73,11 @@
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Type</label>
-                                            <input type="text" class="form-control" name="type" value="{{ $client->type }}">
+                                            <input type="text" class="form-control" name="type"
+                                                   value="{{ $client->type }}">
                                         </div>
                                     </div>
                                 </div>
-
                                 <a href="{{ route('employe.clients.index') }}" class="btn btn-danger">Retour</a>
                                 <button type="submit" class="btn btn-primary">Enregistrer</button>
                             </form>
@@ -86,7 +88,5 @@
         </div>
     </div>
 @endsection
-
 @push('scripts')
-
 @endpush
