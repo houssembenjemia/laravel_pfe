@@ -8,7 +8,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="dropdown">
+                    <h2>Gestion des contrats</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dropdown pull-right">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Nouveau
                             Contrat
                             <span class="caret"></span></button>

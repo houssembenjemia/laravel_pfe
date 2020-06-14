@@ -125,19 +125,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h3 style="text-decoration:  underline;">Assuré</h3>
+                                    <h3 class="col-md-12" style="text-decoration:  underline;">Assuré</h3>
                                     <div class="col-md-12">
                                         <div class="form-group col-md-3">
                                             <label class="col-2 col-form-label">Nom</label>
-                                            <div class="col-10">
-                                                <input class="form-control" type="text" value="{{old('nom')}}"
-                                                       name="nom">
-                                                @if ($errors->has('nom'))
-                                                    <span class="help-block">
-                                            <strong>{{ $errors->first('nom') }}</strong>
-                                        </span>
-                                                @endif
-                                            </div>
+                                                <input class="form-control" type="text" value="{{old('nom')}}" name="nom">
+                                                @if ($errors->has('nom'))<span class="help-block"><strong>{{ $errors->first('nom') }}</strong></span>@endif
                                         </div>
                                         <div class="form-group col-md-3 {{ $errors->has('prenom') ? ' has-error' : '' }}">
                                             <label class="col-2 col-form-label"> Prenom :</label>
@@ -204,7 +197,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-3 {{ $errors->has('adresse') ? ' has-error' : '' }} ">
+                                        <div class="form-group col-md-6 {{ $errors->has('adresse') ? ' has-error' : '' }} ">
                                             <label class="col-2 col-form-label"> Adresse :</label>
                                             <div class="col-10">
                                                 <input class="form-control" type="text" value="{{old('adresse')}}"
@@ -283,16 +276,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-group col-md-3 {{ $errors->has('description') ? ' has-error' : '' }}">
+                                    <div class="form-group col-md-12 {{ $errors->has('description') ? ' has-error' : '' }}">
                                         <label class="col-2 col-form-label"> Description :</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" name="description"
-                                                   value="{{old('description')}}">
-                                            @if ($errors->has('description'))
-                                                <span class="help-block">
-                                            <strong>{{ $errors->first('description') }}</strong>
-                                        </span>
-                                            @endif
+                                            <textarea class="form-control" name="description"
+                                                      value="{{old('description')}}"></textarea>
+                                            @if ($errors->has('description'))<span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>@endif
                                         </div>
                                     </div>
                                 </div>
@@ -302,44 +291,43 @@
                                         <!-- Repeater Content -->
                                         <div class="item-content">
                                             <div class="col-md-12">
-                                                <div class=" form-group col-md-4 ">
+                                                <div class=" form-group col-md-4 {{ $errors->has('date_prime') ? ' has-error' : '' }}">
                                                     <label class="col-2 col-form-label"> Date :</label>
-                                                    <div class="col-10 {{ $errors->has('date_prime') ? ' has-error' : '' }}">
                                                         <input type="date" name="date_prime"
                                                                value="{{old('date_prime')}}"
                                                                placeholder="Enter your date"
                                                                class="form-control name_list"/>
-                                                    </div>
                                                 </div>
                                                 <div class="form-group col-md-4  {{ $errors->has('commision') ? ' has-error' : ''  }}">
-                                                    <label for="example-text-input">Commision :</label>
+                                                    <label for="t">Commision :</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon">$</span>
                                                         <input type="text" class="form-control" name="commision"
                                                                id="inputGroupSuccess3" value="{{old('commision')}}"
                                                                aria-describedby="inputGroupSuccess3Status">
                                                     </div>
-                                                    @if ($errors->has('commision'))
-                                                        <span class="help-block">
-                                                <strong>{{ $errors->first('commision') }}</strong>
-                                            </span>
-                                                    @endif
+                                                    @if ($errors->has('commision'))<span class="help-block"><strong>{{ $errors->first('commision') }}</strong></span>@endif
                                                 </div>
-                                                <div class=" form-group col-md-4">
+                                                <div class=" form-group col-md-4 {{ $errors->has('prime_tot') ? ' has-error' : '' }}">
                                                     <label class="col-2 col-form-label"> Prime Totale :</label>
-                                                    <div class="col-10 {{ $errors->has('prime_tot') ? ' has-error' : '' }}">
                                                         <input type="text" name="prime_tot" value="{{old('prime_tot')}}"
                                                                placeholder="Entrer la prime totale"
                                                                class="form-control name_list"/>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class=" form-group col-md-4">
+                                                <div class=" form-group col-md-6">
+                                                    <label class="col-2 col-form-label"> Montant :</label>
+                                                    <div class="col-10 {{ $errors->has('montant') ? ' has-error' : '' }}">
+                                                        <input type="text" name="montant" value="{{old('montant')}}"
+                                                               placeholder="Entrer le montant"
+                                                               class="form-control name_list"/>
+                                                    </div>
+                                                </div>
+                                                <div class=" form-group col-md-6">
                                                     <label class="col-2 col-form-label"> Type de paiement :</label>
                                                     <div class="col-10 {{ $errors->has('type_paiement') ? ' has-error' : '' }}">
-                                                        <select class="form-control" name="type_paiement"
-                                                                id="type_paiement">
+                                                        <select class="form-control" name="type_paiement">
                                                             <option disabled selected>--choisir le type de paiement--
                                                             </option>
                                                             <option value="cheque">Chèque</option>
@@ -348,15 +336,9 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="col-md-12 cheque hidden">
                                                 <div class=" form-group col-md-4">
-                                                    <label class="col-2 col-form-label"> Montant :</label>
-                                                    <div class="col-10 {{ $errors->has('montant') ? ' has-error' : '' }}">
-                                                        <input type="text" name="montant" value="{{old('montant')}}"
-                                                               placeholder="Entrer le montant"
-                                                               class="form-control name_list"/>
-                                                    </div>
-                                                </div>
-                                                <div class=" form-group col-md-4 cheque hidden">
                                                     <label class="col-2 col-form-label"> Référence :</label>
                                                     <div class="col-10 {{ $errors->has('referance') ? ' has-error' : '' }}">
                                                         <input type="text" name="referance" value="{{old('referance')}}"
@@ -364,9 +346,7 @@
                                                                class="form-control name_list"/>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class=" form-group col-md-4  cheque hidden">
+                                                <div class=" form-group col-md-4">
                                                     <label class="col-2 col-form-label"> Date du chèque :</label>
                                                     <div class="col-10 {{ $errors->has('date_cheq') ? ' has-error' : '' }}">
                                                         <input type="date" name="date_cheq" value="{{old('date_cheq')}}"
@@ -374,25 +354,20 @@
                                                                class="form-control name_list"/>
                                                     </div>
                                                 </div>
-                                                <div class=" form-group col-md-4">
-                                                    <label class="col-2 col-form-label"> Banque :</label>
-                                                    <div class="col-10 {{ $errors->has('banque') ? ' has-error' : '' }}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group col-md-4 {{ $errors->has('banque') ? ' has-error' : '' }}">
+                                                    <label class="col-form-label"> Banque :</label>
                                                         <input type="text" name="banque" value="{{old('banque')}}"
                                                                placeholder="Entrer la banque"
                                                                class="form-control name_list"/>
-                                                    </div>
+                                                        @if ($errors->has('banque'))<span class="help-block"> <strong>{{ $errors->first('banque') }}</strong></span>@endif
                                                 </div>
-                                            </div>
-                                            <div class="col-md-12">
                                                 <div class="form-group col-md-4  {{ $errors->has('feuille') ? ' has-error' : '' }}">
                                                     <label class="col-form-label">Feuille de caisse :</label>
-                                                    <input class="form-control" type="text" name="feuille"
-                                                           value="{{old('feuille')}}">
-                                                    @if ($errors->has('feuille'))
-                                                        <span class="help-block">
-                                                <strong>{{ $errors->first('feuille') }}</strong>
-                                            </span>
-                                                    @endif
+                                                    <input class="form-control" type="text" name="feuille" value="{{old('feuille')}}"
+                                                           placeholder="Entrer feuille de caisse">
+                                                    @if ($errors->has('feuille'))<span class="help-block"> <strong>{{ $errors->first('feuille') }}</strong></span>@endif
                                                 </div>
                                             </div>
                                         </div>
@@ -436,7 +411,7 @@
     <script src="{{ asset("backend/js/repeater.js") }}" type="text/javascript"></script>
     <script>
         $(document).ready(function () {
-            $('#type_paiement').on('change', function () {
+            $('select[name="type_paiement"]').on('change', function () {
                 console.log("ready!");
                 if (this.value == "cheque")
                     $(".cheque").removeClass("hidden");
