@@ -24,6 +24,12 @@ class CreatePrimesTable extends Migration
             $table->date('date_cheq')->default(null);
             $table->string('banque');
             $table->string('feuille');
+            $table->unsignedBigInteger('contrat_id');
+            $table->foreign('contrat_id')
+                ->references('id')
+                ->on('contrats')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class Prime extends Model
      */
     public function contrat()
     {
-        return $this->hasMany('App\Contrat');
+        return $this->belongsTo(Contrat::class);
     }
     
 }

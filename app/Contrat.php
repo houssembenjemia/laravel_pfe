@@ -16,7 +16,7 @@ class Contrat extends Model
 
     public function prime()
     {
-        return $this->belongsTo('App\Prime','id_pri');
+        return $this->hasMany(Prime::class);
     }
     public function objet()
     {
